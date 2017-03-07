@@ -1,0 +1,121 @@
+$theme: 'light';
+$deviceListHeight: 50px;
+
+.root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.deviceList,
+.deviceRotater {
+  width: calc(100% - 120px);
+  height: $deviceListHeight;
+  font-size: 18px;
+  margin: 0;
+  padding: 0 30px;
+  border: 0;
+  outline: 0;
+  border-radius: 0;
+  position: relative;
+  z-index: 1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  -webkit-font-smoothing: antialiased;
+
+  @if $theme == 'light' {
+    box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+    background-color: #fff;
+    &:hover, &:active {
+      background-color: #fafafa;
+    }
+  } @else {
+    background-color: #282828;
+    color: #fff;
+    &:hover, &:active {
+      background-color: #333;
+    }
+  }
+}
+
+.deviceRotater {
+  width: 120px;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  background-image: (
+    linear-gradient(
+      45deg,
+      rgba(161, 161, 161, 0.1) 25%,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0) 75%,
+      rgba(161, 161, 161, 0.1) 0,
+      rgba(161, 161, 161, 0.1)
+    ),
+    linear-gradient(
+      45deg,
+      rgba(161, 161, 161, 0.1) 25%,
+      rgba(0, 0, 0, 0) 0,
+      rgba(0, 0, 0, 0) 75%,
+      rgba(161, 161, 161, 0.1) 0,
+      rgba(161, 161, 161, 0.1)
+    )
+  );
+  background-size: 50px 50px;
+  background-position: 0 0, 25px 25px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+div ~ .content {
+  height: calc(100% - #{$deviceListHeight});
+}
+
+.device {
+  position: relative;
+
+  &:after {
+    width: 70px;
+    color: #999;
+    font-size: 13px;
+    text-align: center;
+    content: attr(data-width) '×' attr(data-height);
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 50%;
+    display: block;
+    -webkit-font-smoothing: antialiased;
+    opacity: 1;
+    transition: opacity .3s linear;
+    transform: translateX(-50%);
+
+    .is-rotated & {
+      opacity: 0;
+    }
+  }
+
+  .is-rotated & {
+    transition: transform .3s ease-out;
+    transform-origin: center center;
+    transform: rotate(90deg);
+  }
+}
+
+iframe {
+  background-color: white;
+  box-shadow: 0 0 5px 2px rgba(0,0,0,0.1);
+  border: 0;
+}

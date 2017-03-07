@@ -1,0 +1,34 @@
+{
+  "name": "react-device-simulator",
+  "version": "0.1.0",
+  "description": "Device simulator for React components",
+  "main": "src/DeviceSimulator/index.js",
+  "scripts": {
+    "test": "npm run test:lint && npm run test:typecheck && npm run test:unit",
+    "build": "sagui build",
+    "develop": "sagui develop --port 3000",
+    "dist": "cross-env NODE_ENV=production sagui build --optimize",
+    "start": "npm run develop",
+    "test:coverage": "npm run test:unit -- --coverage",
+    "test:lint": "sagui lint",
+    "test:typecheck": "sagui typecheck",
+    "test:unit": "cross-env NODE_ENV=test sagui test",
+    "test:unit:watch": "npm run test:unit -- --watch"
+  },
+  "keywords": [],
+  "author": "Pierre Wahlgren <pierre.wahlgren@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react-frame-component": "^0.6.6"
+  },
+  "peerDependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1"
+  },
+  "devDependencies": {
+    "react": "^15.4.1",
+    "react-dom": "^15.4.1",
+    "sagui": "^7.4.0"
+  }
+}
