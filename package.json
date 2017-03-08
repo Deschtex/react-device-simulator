@@ -8,16 +8,14 @@
   ],
   "scripts": {
     "build": "sagui build",
-    "develop": "sagui develop --port 3000",
-    "dist": "NODE_ENV=production sagui build --optimize",
+    "dist": "sagui dist",
     "prepublish": "npm prune && npm test && npm run dist",
-    "start": "npm run develop",
-    "test": "npm run test:lint && npm run test:typecheck && npm run test:unit",
-    "test:coverage": "npm run test:unit -- --coverage",
-    "test:lint": "sagui lint",
-    "test:typecheck": "sagui typecheck",
-    "test:unit": "NODE_ENV=test sagui test",
-    "test:unit:watch": "npm run test:unit -- --watch"
+    "start": "sagui develop --port 3000",
+    "test": "sagui test",
+    "test:lint": "sagui test:lint",
+    "test:typecheck": "sagui test:typecheck",
+    "test:unit": "sagui test:unit --coverage",
+    "test:unit:watch": "sagui test:unit --watch"
   },
   "repository": {
     "type": "git",
@@ -42,6 +40,6 @@
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-frame-component": "^0.6.6",
-    "sagui": "^7.4.0"
+    "sagui": "^8.0.0"
   }
 }
