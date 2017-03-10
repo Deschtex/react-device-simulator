@@ -3,8 +3,6 @@ import Frame from 'react-frame-component'
 import classNamesBind from 'classnames/bind'
 import styles from './index.scss'
 
-const classNames = classNamesBind.bind(styles)
-
 const DEFAULT_DEVICES = [
   { name: 'None', width: '100%', height: '100%' },
   { name: 'iPhone 5', width: 320, height: 568 },
@@ -22,13 +20,16 @@ const INITIAL_FRAME_CONTENT = `
     </body>
   </html>
 `
+const classNames = classNamesBind.bind(styles)
+
+export const defaultDevices = DEFAULT_DEVICES
 
 export default class DeviceSimulator extends React.Component {
   constructor (props) {
     super(props)
     this.onDeviceClick = this.onDeviceClick.bind(this)
     this.onRotaterClick = this.onRotaterClick.bind(this)
-    this.devices = this.props.devices || DEFAULT_DEVICES
+    this.devices = this.props.devices
     this.state = {
       device: this.props.device || this.devices[0],
       isRotated: false,
@@ -68,6 +69,9 @@ export default class DeviceSimulator extends React.Component {
   }
   onRotaterClick (device, event) {
     event.preventDefault()
+    if (device.width === device.height) {
+      return
+    }
     setTimeout(() => {
       this.setState({
         isRotated: !this.state.isRotated,
@@ -86,10 +90,9 @@ export default class DeviceSimulator extends React.Component {
 
 DeviceSimulator.defaultProps = {
   onDeviceChange: () => {},
-  showDevices: true
+  showDevices: true,
+  devices: DEFAULT_DEVICES
 }
-
-export const defaultDevices = DEFAULT_DEVICES
 
 const renderDeviceListItem = (device = {}, key) => (
   <option
