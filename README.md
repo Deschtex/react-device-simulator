@@ -1,10 +1,10 @@
 # React Device Simulator
 
-React component that allows visualizing a given component in diferent screen sizes.
+React component that allows visualizing a given component in different screen sizes.
 
 ![Example](https://raw.githubusercontent.com/Deschtex/react-device-simulator/master/example.png)
 
-## Instalation and usage
+## Installation and usage
 
 Simply add the package:
 
