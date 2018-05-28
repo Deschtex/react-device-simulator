@@ -9,7 +9,6 @@
   "scripts": {
     "build": "sagui build",
     "dist": "sagui dist",
-    "prepublish": "npm prune && npm test && npm run dist",
     "start": "sagui develop --port 3000",
     "test": "sagui test",
     "test:lint": "sagui test:lint",
