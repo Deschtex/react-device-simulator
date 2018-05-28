@@ -31,16 +31,19 @@
   ],
   "author": "Pierre Wahlgren <pierre.wahlgren@gmail.com>",
   "license": "ISC",
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "react-frame-component": "^3.0.0"
+  },
   "peerDependencies": {
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "prop-types": "15.6.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
   },
   "devDependencies": {
-    "classnames": "^2.2.5",
     "prop-types": "15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-frame-component": "^3.0.0",
     "sagui": "^8.0.0"
   }
 }
